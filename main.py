@@ -284,10 +284,12 @@ def trx_address(message):
             bot.send_message(
                 message.chat.id, "*⚠️ It's Not a Valid Telegram Username!*", parse_mode="Markdown")
             return menu(message.chat.id)
-   except:
-        bot.send_message(message.chat.id, "This command having error pls wait for ficing the glitch by admin")
-        bot.send_message(OWNER_ID, "Your bot got an error fix it fast!\n Error on command: "+message.text)
+    except:
+        bot.send_message(message.chat.id, "This command is having an error. Please wait for fixing the glitch by the admin.")
+        bot.send_message(OWNER_ID, "Your bot encountered an error. Please fix it soon!\n Error on command: " + message.text)
         return
+
+
 
 def amo_with(message):
    try:
