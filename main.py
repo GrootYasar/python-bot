@@ -154,7 +154,7 @@ def query_handler(call):
             markup = telebot.types.InlineKeyboardMarkup()
             markup.add(telebot.types.InlineKeyboardButton(
                 text='🤼‍♂️ Joined', callback_data='check'))
-            msg_start = "*🍔 To Use This Bot You Need To Join This Channel - \n➡️ @ Fill your channels at line: 101 and 157*"
+            msg_start = "*🍔 To Use This Bot You Need To Join This Channel - \n"
             bot.send_message(call.message.chat.id, msg_start,
                              parse_mode="Markdown", reply_markup=markup)
    except:
@@ -185,7 +185,7 @@ def send_text(message):
         bot.send_message(message.chat.id, msg, parse_mode="Markdown")
     if message.text == '🙌🏻 Referrals':
         data = json.load(open('users.json', 'r'))
-        ref_msg = "*⏯️ Total Invites : {} Users\n\n Share our bot to earn Points for Netflix Cookies\n\n🔗 Referral Link ⬇️\n{}*"
+        ref_msg = "*⏯️ Total Invites : {} Users\n\n👥 Refferrals System\n\n1 Level:\n🥇 Level°1 - {} {}\n\n🔗 Referral Link ⬇️\n{}*"
 
         bot_name = bot.get_me().username
         user_id = message.chat.id
