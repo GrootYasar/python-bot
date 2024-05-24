@@ -10,9 +10,9 @@ PAYMENT_CHANNEL = "@cookwithd" #add payment channel here including the '@' sign
 OWNER_ID = 5577450357 #write owner's user id here.. get it from @MissRose_Bot by /id
 CHANNELS = ["@dailynetflixcookiesfree"] #add channels to be checked here in the format - ["Channel 1", "Channel 2"] 
               #you can add as many channels here and also add the '@' sign before channel username
-Daily_bonus = 1 #Put daily bonus amount here!
-Mini_Withdraw = 0.5  #remove 0 and add the minimum withdraw u want to set
-Per_Refer = 0.0001 #add per refer bonus here
+Daily_bonus = 0.1 #Put daily bonus amount here!
+Mini_Withdraw = 1  #remove 0 and add the minimum withdraw u want to set
+Per_Refer = 1 #add per refer bonus here
 
 bot = telebot.TeleBot(BOT_TOKEN)
 
@@ -29,7 +29,7 @@ bonus = {}
 def menu(id):
     keyboard = telebot.types.ReplyKeyboardMarkup(True)
     keyboard.row('🆔 Account')
-    keyboard.row('🙌🏻 Referrals', '🎁 Bonus', '💸 Withdraw')
+    keyboard.row('🙌🏻 Referrals', '💸 Withdraw')
     keyboard.row('⚙️ Set Wallet', '📊Statistics')
     bot.send_message(id, "*🏡 Home*", parse_mode="Markdown",
                      reply_markup=keyboard)
@@ -116,7 +116,7 @@ def query_handler(call):
             user_id = call.message.chat.id
             user = str(user_id)
             bot.answer_callback_query(
-                callback_query_id=call.id, text='✅ You joined Now yu can earn money')
+                callback_query_id=call.id, text='✅ You joined Now you can get Netflix Cookies')
             bot.delete_message(call.message.chat.id, call.message.message_id)
             if user not in data['refer']:
                 data['refer'][user] = True
@@ -206,7 +206,7 @@ def send_text(message):
 
         keyboard = telebot.types.ReplyKeyboardMarkup(True)
         keyboard.row('🚫 Cancel')
-        send = bot.send_message(message.chat.id, "_⚠️Send your TRX Wallet Address._",
+        send = bot.send_message(message.chat.id, "_⚠️Send your Telegram Username._",
                                 parse_mode="Markdown", reply_markup=keyboard)
         # Next message will call the name_handler function
         bot.register_next_step_handler(message, trx_address)
